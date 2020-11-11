@@ -1,0 +1,43 @@
+<!ELEMENT document (basic,interfaces)>
+<!ELEMENT basic (project, author)>
+<!ELEMENT project (project-name, project-desc, version)>
+<!ELEMENT project-name (#PCDATA)>
+<!ELEMENT project-desc (#PCDATA)>
+<!ELEMENT version (#PCDATA)>
+<!ELEMENT author (author-name, email, phone, blog)>
+<!ELEMENT author-name (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT blog (#PCDATA)>
+
+<!-- 接口组  -->
+<!ELEMENT interfaces (interface-group+)>
+<!ELEMENT interface-group (interface+)>
+<!ATTLIST interface-group group-title CDATA #REQUIRED>
+<!ATTLIST interface-group group-desc CDATA #IMPLIED>
+<!ATTLIST interface-group group ID #REQUIRED>
+<!ATTLIST interface-group base-uri CDATA #IMPLIED>
+<!-- /接口组  -->
+<!-- 接口信息 -->
+<!ELEMENT interface (parameters, responses)>
+<!ATTLIST interface interface-title CDATA #REQUIRED>
+<!ATTLIST interface interface-desc CDATA #IMPLIED>
+<!ATTLIST interface interface-url CDATA #REQUIRED>
+
+<!-- 参数信息 -->
+<!ELEMENT parameters (parameter+)>
+<!ELEMENT parameter EMPTY>
+<!ATTLIST parameter parameter-name CDATA #REQUIRED>
+<!ATTLIST parameter parameter-desc CDATA #IMPLIED>
+<!ATTLIST parameter parameter-type CDATA #REQUIRED>
+<!ATTLIST parameter parameter-default CDATA "0">
+<!ATTLIST parameter parameter-required (false | true) "false">
+<!-- /参数信息 -->
+
+<!-- 响应信息 -->
+<!ELEMENT responses (response+)>
+<!ELEMENT response EMPTY>
+<!ATTLIST response response-code CDATA #REQUIRED>
+<!ATTLIST response response-message CDATA #REQUIRED>
+<!-- /响应信息 -->
+<!-- /接口信息 -->
